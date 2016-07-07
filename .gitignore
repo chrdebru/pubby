@@ -3,3 +3,8 @@ target
 .project
 .settings
 *.swp
+/bin/
+
+src/main/java/de/fuberlin/wiwiss/pubby/Configuration.java
+
+move.sh

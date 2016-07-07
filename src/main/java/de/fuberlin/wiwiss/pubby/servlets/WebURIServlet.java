@@ -34,6 +34,7 @@ public class WebURIServlet extends BaseServlet {
 		ContentTypeNegotiator negotiator = PubbyNegotiator.getPubbyNegotiator();
 		MediaRangeSpec bestMatch = negotiator.getBestMatch(
 				request.getHeader("Accept"), request.getHeader("User-Agent"));
+		
 		if (bestMatch == null) {
 			response.setStatus(406);
 			response.setContentType("text/plain");
@@ -48,6 +49,8 @@ public class WebURIServlet extends BaseServlet {
 		String location;
 		if ("text/html".equals(bestMatch.getMediaType())) {
 			location = controller.getPageURL();
+		} else if ("text/javascript".equals(bestMatch.getMediaType())) {
+			location = controller.getJavaScriptURL();
 		} else {
 			location = controller.getDataURL();
 		}

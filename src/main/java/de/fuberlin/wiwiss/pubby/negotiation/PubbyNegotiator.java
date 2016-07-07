@@ -5,6 +5,7 @@ import java.util.regex.Pattern;
 public class PubbyNegotiator {
 	private final static ContentTypeNegotiator pubbyNegotiator;
 	private final static ContentTypeNegotiator dataNegotiator;
+	private final static ContentTypeNegotiator jsNegotiator;
 	
 	static {
 		pubbyNegotiator = new ContentTypeNegotiator();
@@ -35,6 +36,9 @@ public class PubbyNegotiator {
 				.addAliasMediaType("application/turtle;q=0.8")
 				.addAliasMediaType("text/turtle;q=0.5");
 		pubbyNegotiator.addVariant("text/plain;q=0.2");
+		pubbyNegotiator.addVariant("text/javascript;q=0.99")
+			.addAliasMediaType("application/javascript;q=0.80")
+			.addAliasMediaType("application/x-javascript;q=0.50");
 
 		dataNegotiator = new ContentTypeNegotiator();
 		dataNegotiator.addVariant("application/rdf+xml;q=0.99")
@@ -47,6 +51,13 @@ public class PubbyNegotiator {
 				.addAliasMediaType("application/turtle;q=0.8")
 				.addAliasMediaType("text/turtle;q=0.5");
 		dataNegotiator.addVariant("text/plain;q=0.2");
+		
+		jsNegotiator = new ContentTypeNegotiator();
+		jsNegotiator.setDefaultAccept("text/javascript");
+		jsNegotiator.addVariant("text/javascript;q=0.99")
+			.addAliasMediaType("application/javascript;q=0.80")
+			.addAliasMediaType("application/x-javascript;q=0.50");
+		
 	}
 	
 	public static ContentTypeNegotiator getPubbyNegotiator() {
@@ -55,5 +66,9 @@ public class PubbyNegotiator {
 	
 	public static ContentTypeNegotiator getDataNegotiator() {
 		return dataNegotiator;
+	}
+	
+	public static ContentTypeNegotiator getJsNegotiator() {
+		return jsNegotiator;
 	}
 }

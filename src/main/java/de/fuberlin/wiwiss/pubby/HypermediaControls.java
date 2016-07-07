@@ -133,6 +133,11 @@ public class HypermediaControls {
 		return config.getWebApplicationBaseURI() + "data/" + getPubbyPath();
 
 	}
+	
+	public String getJavaScriptURL() {
+		return config.getWebApplicationBaseURI() + "js/" + getPubbyPath();
+
+	}
 		
 	public String getValuesPageURL(Property property) {
 		return getPathURL("values/", property);

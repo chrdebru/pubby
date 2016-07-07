@@ -55,6 +55,17 @@
   </servlet-mapping>
   
   <servlet>
+    <servlet-name>JavaScriptURLServlet</servlet-name>
+    <servlet-class>de.fuberlin.wiwiss.pubby.servlets.JavaScriptURLServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>JavaScriptURLServlet</servlet-name>
+    <url-pattern>/js/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>ValuesDataURLServlet</servlet-name>
     <servlet-class>de.fuberlin.wiwiss.pubby.servlets.ValuesDataURLServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
